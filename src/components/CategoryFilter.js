@@ -1,12 +1,11 @@
 import React from "react";
-import { v4 as uuidv4 } from 'uuid';
 
 function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
-  const categoryButtons = categories.map((category) => {
+  const buttons = categories.map((category) => {
     const className = category === selectedCategory ? "selected" : null;
     return (
       <button
-        key={uuidv4()}
+        key={category}
         className={className}
         onClick={() => onSelectCategory(category)}
       >
@@ -18,9 +17,8 @@ function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {categoryButtons}
+      {buttons}
     </div>
   );
 }
-
 export default CategoryFilter;
